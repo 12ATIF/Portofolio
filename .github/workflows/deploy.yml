@@ -3,7 +3,7 @@ name: Deploy to Vercel
 on:
   push:
     branches:
-      - main # Hanya berjalan saat ada push ke branch main
+      - main
 
 jobs:
   deploy:
