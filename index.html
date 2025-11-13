@@ -1,327 +1,502 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Latif Ali Nurjaman - The Web-Slinger's Portfolio</title>
+    <title>Latif Ali Nurjaman - Digital Architect | Full Stack Developer</title>
+    <meta name="description" content="Full Stack Web Developer specializing in robust digital solutions. Expert in React, Node.js, and modern web technologies.">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Google Fonts: Bangers (for titles) & Comic Neue (for body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-        /* Define custom fonts */
-        .font-bangers { font-family: 'Bangers', cursive; }
-        .font-comic-neue { font-family: 'Comic Neue', cursive; }
-
-        /* Halftone dot background pattern */
-        body {
-            background-color: #f0f0f0;
-            background-image: radial-gradient(#d4d4d4 1px, transparent 1px);
-            background-size: 10px 10px;
-            font-family: 'Comic Neue', cursive;
-        }
-
-        /* Comic Panel Style */
-        .comic-panel {
-            background-color: white;
-            border: 4px solid #1f2937; /* black-ish border */
-            box-shadow: 8px 8px 0px #1f2937;
-            margin-bottom: 4rem;
-        }
-
-        /* Speech Bubble Style */
-        .speech-bubble {
-            position: relative;
-            background: #e5e7eb; /* bg-gray-200 */
-            border-radius: .4em;
-            padding: 1.5rem;
-            border: 4px solid #1f2937;
-        }
-        .speech-bubble:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border: 20px solid transparent;
-            border-top-color: #1f2937;
-            border-bottom: 0;
-            border-left: 0;
-            margin-left: -10px;
-            margin-bottom: -20px;
-        }
-        
-        /* Title with skewed background */
-        .comic-title {
-            display: inline-block;
-            padding: 0.25rem 1.5rem;
-            background-color: #ef4444; /* red-500 */
-            color: white;
-            transform: skew(-15deg);
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-            border: 4px solid #1f2937;
-        }
-
-        /* Animation for elements */
-        @keyframes popIn {
-            0% { transform: scale(0.5); opacity: 0; }
-            80% { transform: scale(1.1); }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        .pop-in {
-            animation: popIn 0.6s ease-out forwards;
-        }
-
-        /* Added for sticky header offset */
-        section {
-            scroll-margin-top: 100px;
-        }
-    </style>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="text-gray-800">
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
 
-    <!-- === HEADER / MASTHEAD === -->
-    <header id="header" class="bg-white border-b-4 border-black sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- Brand/Logo -->
-            <a href="#home" class="font-bangers text-4xl text-blue-600" style="-webkit-text-stroke: 2px black;">LATIF!</a>
-            
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-6 font-bangers text-xl tracking-wider">
-                <a href="#about" class="text-gray-700 hover:text-red-500">Tentang</a>
-                <a href="#education" class="text-gray-700 hover:text-red-500">Pendidikan</a>
-                <a href="#skills" class="text-gray-700 hover:text-red-500">Skills</a>
-                <a href="#projects" class="text-gray-700 hover:text-red-500">Proyek</a>
-                <a href="#contact" class="bg-yellow-400 text-black px-4 py-1 border-2 border-black rounded-md hover:bg-yellow-500">Hubungi</a>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="bg-gray-800 text-white p-2 rounded-md border-2 border-black">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </div>
+    <!-- HEADER & NAVIGATION -->
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <a href="#hero" class="logo">LAN</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Arsenal</a></li>
+                <li><a href="#projects" class="nav-link">Missions</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t-4 border-black">
-            <a href="#about" class="block text-center font-bangers text-2xl py-3 border-b-2 border-gray-200 hover:bg-yellow-100">Tentang</a>
-            <a href="#education" class="block text-center font-bangers text-2xl py-3 border-b-2 border-gray-200 hover:bg-yellow-100">Pendidikan</a>
-            <a href="#skills" class="block text-center font-bangers text-2xl py-3 border-b-2 border-gray-200 hover:bg-yellow-100">Keahlian</a>
-            <a href="#projects" class="block text-center font-bangers text-2xl py-3 border-b-2 border-gray-200 hover:bg-yellow-100">Proyek</a>
-            <a href="#contact" class="block text-center font-bangers text-2xl py-4 bg-yellow-400 hover:bg-yellow-500">Hubungi</a>
-        </div>
     </header>
 
-
-    <main class="container mx-auto px-4 py-12 md:py-20">
-
-        <!-- PANEL 1: THE COVER (PERKENALAN) -->
-        <section id="home" class="comic-panel">
-             <div class="flex flex-col md:flex-row items-center justify-center p-6 md:p-10 gap-8">
-                <!-- Character Image -->
-                <div class="w-48 h-48 md:w-64 md:h-64 relative flex-shrink-0">
-                    <div class="absolute inset-0 bg-yellow-400 rounded-full transform rotate-6"></div>
-                    <img 
-                        src="latif.jpg" 
-                        alt="Foto Latif Ali Nurjaman"
-                        class="w-full h-full object-cover rounded-full border-4 border-black relative"
-                        onerror="this.onerror=null;this.src='https://placehold.co/300x300/e0e0e0/333?text=Gagal+Muat';"
-                    />
+    <!-- HERO SECTION -->
+    <section class="hero section" id="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="hero-image">
+                    <div class="profile-photo">
+                        <img src="assets/img/latif.jpg" alt="Latif Ali Nurjaman">
+                    </div>
                 </div>
-                <!-- Intro Text -->
-                <div class="text-center md:text-left">
-                    <h2 class="font-bangers text-2xl text-gray-600 tracking-wider">MEMPERKENALKAN...</h2>
-                    <h1 class="font-bangers text-7xl md:text-8xl text-blue-600 tracking-widest" style="-webkit-text-stroke: 3px black;">LATIF ALI NURJAMAN!</h1>
-                    <p class="font-comic-neue font-bold text-xl mt-2">
-                        Seorang Full-Stack Developer dengan misi untuk menyelamatkan dunia dari aplikasi yang buruk!
-                    </p>
-                    <!-- SOCIAL MEDIA ICONS ADDED HERE -->
-                    <div class="mt-6 flex space-x-4 justify-center md:justify-start">
-                        <a href="#" target="_blank" title="LinkedIn" class="bg-blue-600 text-white p-3 rounded-full border-2 border-black hover:bg-blue-700 transition-colors duration-200">
-                           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        </a>
-                        <a href="#" target="_blank" title="GitHub" class="bg-gray-800 text-white p-3 rounded-full border-2 border-black hover:bg-black transition-colors duration-200">
-                           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        </a>
-                        <a href="#" target="_blank" title="Instagram" class="bg-gradient-to-br from-purple-600 via-pink-500 to-yellow-400 text-white p-3 rounded-full border-2 border-black hover:opacity-90 transition-opacity duration-200">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.644-.07 4.85-.07m0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
-                        </a>
+                <div class="hero-text">
+                    <h1 class="hero-title">LATIF ALI NURJAMAN</h1>
+                    <p class="hero-subtitle">Full Stack Web Developer // Digital Architect</p>
+                    <p class="hero-tagline">Building robust digital universes, one line of code at a time. Transforming complex problems into elegant, scalable solutions that users love and businesses depend on.</p>
+                    <a href="#projects" class="cta-button">
+                        <i class="fas fa-rocket"></i> View Mission Logs
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2>CLASSIFIED: Origin Story</h2>
+            <div class="panel fade-in">
+                <p>Welcome to my digital headquarters. I'm Latif Ali Nurjaman, a passionate Full Stack Web Developer who approaches every project like an architect designing the future. My mission is simple: transform complex problems into elegant, scalable solutions that users love and businesses depend on.</p>
+                
+                <p>With a foundation built on clean code principles and user-centric design, I specialize in creating robust web applications that don't just work—they excel. Whether it's crafting intuitive frontend experiences or engineering powerful backend systems, I believe every line of code should serve a purpose and every feature should solve a real problem.</p>
+                
+                <p>I thrive in collaborative environments where innovation meets execution, always ready to tackle the next challenge and push the boundaries of what's possible in the digital realm. My approach combines technical excellence with creative problem-solving, ensuring that every project delivers both exceptional performance and outstanding user experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- SKILLS SECTION -->
+    <section class="section" id="skills">
+        <div class="container">
+            <h2>THE ARSENAL: Core Competencies</h2>
+            <div class="grid grid-4">
+                <div class="panel skill-category fade-in">
+                    <i class="fas fa-laptop-code skill-icon"></i>
+                    <h3>Frontend</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-react"></i> React.js & Next.js</li>
+                        <li><i class="fab fa-vuejs"></i> Vue.js & Nuxt.js</li>
+                        <li><i class="fab fa-js"></i> TypeScript</li>
+                        <li><i class="fab fa-css3-alt"></i> Tailwind CSS</li>
+                        <li><i class="fab fa-sass"></i> SASS/SCSS</li>
+                        <li><i class="fas fa-mobile-alt"></i> Responsive Design</li>
+                    </ul>
+                </div>
+                
+                <div class="panel skill-category fade-in">
+                    <i class="fas fa-server skill-icon"></i>
+                    <h3>Backend</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-node-js"></i> Node.js & Express</li>
+                        <li><i class="fab fa-python"></i> Python & Django</li>
+                        <li><i class="fab fa-php"></i> PHP & Laravel</li>
+                        <li><i class="fas fa-code"></i> RESTful APIs</li>
+                        <li><i class="fas fa-project-diagram"></i> GraphQL</li>
+                        <li><i class="fas fa-cubes"></i> Microservices</li>
+                    </ul>
+                </div>
+                
+                <div class="panel skill-category fade-in">
+                    <i class="fas fa-database skill-icon"></i>
+                    <h3>Database</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-elephant"></i> PostgreSQL</li>
+                        <li><i class="fas fa-database"></i> MySQL</li>
+                        <li><i class="fas fa-leaf"></i> MongoDB</li>
+                        <li><i class="fas fa-memory"></i> Redis</li>
+                        <li><i class="fas fa-bolt"></i> Supabase</li>
+                        <li><i class="fas fa-fire"></i> Firebase</li>
+                    </ul>
+                </div>
+                
+                <div class="panel skill-category fade-in">
+                    <i class="fas fa-tools skill-icon"></i>
+                    <h3>DevOps & Tools</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-git-alt"></i> Git & GitHub</li>
+                        <li><i class="fab fa-docker"></i> Docker</li>
+                        <li><i class="fab fa-aws"></i> AWS & Vercel</li>
+                        <li><i class="fas fa-sync-alt"></i> CI/CD Pipelines</li>
+                        <li><i class="fab fa-linux"></i> Linux/Unix</li>
+                        <li><i class="fas fa-users-cog"></i> Agile/Scrum</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2>MISSION LOGS: Featured Projects</h2>
+            <div class="grid grid-3">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">Full-featured e-commerce solution with real-time inventory management, secure payment processing, and advanced analytics dashboard.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Stripe</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Analytics Dashboard</h3>
+                        <p class="project-description">Real-time data visualization platform with interactive charts, custom reporting, and automated insights generation.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">D3.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Social Collaboration Tool</h3>
+                        <p class="project-description">Team productivity platform with real-time messaging, file sharing, project management, and video conferencing integration.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Mobile-First PWA</h3>
+                        <p class="project-description">Progressive Web Application with offline capabilities, push notifications, and native app-like experience across all devices.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">PWA</span>
+                            <span class="tech-tag">Service Worker</span>
+                            <span class="tech-tag">IndexedDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AI-Powered CMS</h3>
+                        <p class="project-description">Content Management System with AI-driven content suggestions, automated SEO optimization, and intelligent content categorization.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">OpenAI</span>
+                            <span class="tech-tag">Prisma</span>
+                            <span class="tech-tag">Vercel</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Cybersecurity Dashboard</h3>
+                        <p class="project-description">Real-time security monitoring platform with threat detection, vulnerability assessment, and automated incident response.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">WebSocket</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- PANEL 2: THE ORIGIN STORY (TENTANG) -->
-        <section id="about" class="text-center">
-            <div class="comic-title mx-auto">
-                <span class="inline-block transform -skew-x-12">THE ORIGIN STORY</span>
-            </div>
-            <div class="max-w-4xl mx-auto mt-8">
-                <div class="speech-bubble font-comic-neue text-lg leading-relaxed">
-                    Setiap pahlawan punya cerita awal. Kisahku dimulai bukan karena sengatan laba-laba radioaktif, melainkan dari ketikan 'Hello, World!' yang mengubah segalanya. Sejak saat itu, aku bertekad untuk menggunakan kekuatan coding-ku untuk menciptakan aplikasi yang tidak hanya fungsional, tapi juga seru dan menarik untuk dijelajahi. Misi utamaku: membuat dunia digital menjadi tempat yang lebih baik, satu baris kode pada satu waktu.
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- PANEL 3: TRAINING GROUNDS (PENDIDIKAN) -->
-        <section id="education" class="comic-panel p-6 md:p-10 mt-24">
-            <h2 class="font-bangers text-5xl text-center mb-8" style="-webkit-text-stroke: 2px black;">TRAINING GROUNDS!</h2>
-            <div class="max-w-2xl mx-auto">
-                <!-- Education Item 1 -->
-                <div class="flex gap-4 mb-6">
-                    <div class="font-bangers text-4xl text-red-500">2025</div>
-                    <div class="border-l-4 border-black pl-4">
-                        <h3 class="font-bangers text-3xl">Universitas Perjuangan Tasikmalaya</h3>
-                        <p class="font-comic-neue font-bold text-lg">S1 - Teknik Informatika</p>
-                    </div>
-                </div>
-                 <!-- Education Item 2 -->
-                <div class="flex gap-4">
-                    <div class="font-bangers text-4xl text-red-500">2021</div>
-                    <div class="border-l-4 border-black pl-4">
-                        <h3 class="font-bangers text-3xl">SMK Al-Falah Tanjung Jaya</h3>
-                        <p class="font-comic-neue font-bold text-lg">Teknik Komputer dan Jaringan</p>
-                    </div>
+    <div class="section-divider"></div>
+
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2>CONTACT HQ</h2>
+            <div class="panel fade-in">
+                <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">Ready to build something extraordinary together? Let's connect and discuss your next digital mission.</p>
+                
+                <div class="contact-buttons">
+                    <a href="mailto:latif.ali.nurjaman@email.com" class="contact-btn">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email Mission Control</span>
+                    </a>
+                    
+                    <a href="https://linkedin.com/in/latif-ali-nurjaman" class="contact-btn" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn Profile</span>
+                    </a>
+                    
+                    <a href="https://github.com/latif-ali-nurjaman" class="contact-btn" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub Repository</span>
+                    </a>
+                    
+                    <a href="#" class="contact-btn resume">
+                        <i class="fas fa-download"></i>
+                        <span>Download Classified Résumé</span>
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- PANEL 4: THE ARSENAL (PENGALAMAN/KEAHLIAN) -->
-        <section id="skills" class="comic-panel p-6 md:p-10">
-            <h2 class="font-bangers text-5xl text-center mb-8" style="-webkit-text-stroke: 2px black;">THE ARSENAL!</h2>
-            <!-- RESPONSIVE LAYOUT UPDATED TO FLEXBOX -->
-            <div class="flex flex-wrap justify-center gap-8 md:gap-10">
-                <!-- Skill items now have a fixed width for better wrapping -->
-                <div class="text-center pop-in w-32">
-                    <div class="bg-gray-100 p-4 border-4 border-black rounded-lg transform rotate-3">
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="h-16 w-16 mx-auto" alt="JavaScript Icon"/>
-                    </div>
-                    <p class="font-bangers text-2xl mt-2 text-yellow-500" style="-webkit-text-stroke: 1px black;">JAVASCRIPT</p>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    © 2024 Latif Ali Nurjaman // Digital Architect
                 </div>
-                <div class="text-center pop-in w-32" style="animation-delay: 0.1s;">
-                    <div class="bg-gray-100 p-4 border-4 border-black rounded-lg transform -rotate-3">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="h-16 w-16 mx-auto" alt="Next.js Icon"/>
-                    </div>
-                    <p class="font-bangers text-2xl mt-2 text-gray-800" style="-webkit-text-stroke: 1px black;">NEXT.JS</p>
+                <div class="footer-social">
+                    <a href="https://linkedin.com/in/latif-ali-nurjaman" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/latif-ali-nurjaman" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:latif.ali.nurjaman@email.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
-                <div class="text-center pop-in w-32" style="animation-delay: 0.2s;">
-                    <div class="bg-gray-100 p-4 border-4 border-black rounded-lg transform rotate-2">
-                        <img src="https://static.cdnlogo.com/logos/t/58/tailwind-css.svg" class="h-16 w-16 mx-auto" alt="Tailwind CSS Icon"/>
-                    </div>
-                    <p class="font-bangers text-2xl mt-2 text-cyan-500" style="-webkit-text-stroke: 1px black;">TAILWIND</p>
-                </div>
-                <div class="text-center pop-in w-32" style="animation-delay: 0.3s;">
-                    <div class="bg-gray-100 p-4 border-4 border-black rounded-lg transform rotate-3">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="h-16 w-16 mx-auto" alt="PHP Icon"/>
-                    </div>
-                    <p class="font-bangers text-2xl mt-2 text-indigo-500" style="-webkit-text-stroke: 1px black;">PHP</p>
-                </div>
-                <div class="text-center pop-in w-32" style="animation-delay: 0.4s;">
-                    <div class="bg-gray-100 p-4 border-4 border-black rounded-lg transform rotate-6">
-                        <img src="https://static.cdnlogo.com/logos/l/23/laravel.svg" class="h-16 w-16 mx-auto" alt="Laravel Icon"/>
-                    </div>
-                    <p class="font-bangers text-2xl mt-2 text-red-500" style="-webkit-text-stroke: 1px black;">LARAVEL</p>
-                </div>
-                <div class="text-center pop-in w-32" style="animation-delay: 0.5s;">
-                    <div class="bg-gray-100 p-4 border-4 border-black rounded-lg transform -rotate-4">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" class="h-16 w-16 mx-auto" alt="Flutter Icon"/>
-                    </div>
-                    <p class="font-bangers text-2xl mt-2 text-blue-500" style="-webkit-text-stroke: 1px black;">FLUTTER</p>
-                </div>
-                 <div class="text-center pop-in w-32" style="animation-delay: 0.6s;">
-                    <div class="bg-gray-100 p-4 border-4 border-black rounded-lg transform rotate-4">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" class="h-16 w-16 mx-auto" alt="Kotlin Icon"/>
-                    </div>
-                    <p class="font-bangers text-2xl mt-2 text-purple-500" style="-webkit-text-stroke: 1px black;">KOTLIN</p>
-                </div>
-                <div class="text-center pop-in w-32" style="animation-delay: 0.7s;">
-                    <div class="bg-gray-100 p-4 border-4 border-black rounded-lg transform -rotate-2">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="h-16 w-16 mx-auto" alt="Git Icon"/>
-                    </div>
-                    <p class="font-bangers text-2xl mt-2 text-orange-500" style="-webkit-text-stroke: 1px black;">GIT</p>
-                </div>
-                <div class="text-center pop-in w-32" style="animation-delay: 0.8s;">
-                    <div class="bg-gray-100 p-4 border-4 border-black rounded-lg transform -rotate-6">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" class="h-16 w-16 mx-auto" alt="GCP Icon"/>
-                    </div>
-                    <p class="font-bangers text-2xl mt-2 text-green-500" style="-webkit-text-stroke: 1px black;">GCP</p>
-                </div>
-                <div class="text-center pop-in w-32" style="animation-delay: 0.9s;">
-                    <div class="bg-gray-100 p-4 border-4 border-black rounded-lg transform rotate-5">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="h-16 w-16 mx-auto" alt="Figma Icon"/>
-                    </div>
-                    <p class="font-bangers text-2xl mt-2 text-pink-500" style="-webkit-text-stroke: 1px black;">FIGMA</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PANEL 5: EPIC SAGAS (PROYEK SAYA) -->
-        <section id="projects">
-             <h2 class="font-bangers text-5xl text-center mb-8" style="-webkit-text-stroke: 2px black;">EPIC SAGAS!</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Project cards... (no changes here) -->
-                 <div class="comic-panel p-1 transform hover:rotate-2 transition-transform">
-                    <img src="https://placehold.co/600x400/3b82f6/white?text=Project+A" alt="Screenshot Project 1" class="w-full h-auto object-cover border-b-4 border-black">
-                    <div class="p-4 bg-yellow-300">
-                        <h3 class="font-bangers text-3xl text-black">NAMA PROYEK KEREN</h3>
-                        <p class="font-comic-neue font-bold mt-1 mb-3">Deskripsi singkat yang heroik tentang misi ini dan bagaimana aku menyelesaikannya!</p>
-                        <a href="#" class="font-bangers text-xl text-red-600 hover:underline">LIHAT MISI! &raquo;</a>
-                    </div>
-                </div>
-                <div class="comic-panel p-1 transform hover:-rotate-2 transition-transform">
-                    <img src="https://placehold.co/600x400/10b981/white?text=Project+B" alt="Screenshot Project 2" class="w-full h-auto object-cover border-b-4 border-black">
-                    <div class="p-4 bg-blue-300">
-                        <h3 class="font-bangers text-3xl text-black">APLIKASI E-COMMERCE</h3>
-                         <p class="font-comic-neue font-bold mt-1 mb-3">Membangun markas online untuk para pedagang dengan kekuatan super cepat dan responsif.</p>
-                        <a href="#" class="font-bangers text-xl text-red-600 hover:underline">LIHAT MISI! &raquo;</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-    </main>
-
-    <!-- === FOOTER / CONTACT PANEL === -->
-    <footer id="contact" class="bg-gray-800 pt-16 pb-12 mt-20">
-        <div class="container mx-auto px-4 text-center text-white">
-            <h2 class="font-bangers text-5xl md:text-6xl text-yellow-400" style="-webkit-text-stroke: 2px black;">BUTUH BANTUAN?</h2>
-            <p class="font-comic-neue text-xl mt-4 mb-6 max-w-lg mx-auto">
-                Punya ide proyek atau butuh seorang pahlawan developer? Kirim sinyal!
-            </p>
-            <a href="https://wa.me/6282216886628" class="inline-block bg-red-500 text-white font-bangers text-2xl px-8 py-3 border-4 border-black rounded-lg hover:bg-red-600 transition-colors">
-                KIRIM SINYAL!
-            </a>
-            <div class="mt-8 border-t-2 border-dashed border-gray-600 pt-8">
-                <p class="font-comic-neue text-sm text-gray-400">&copy; 2025 Latif Ali Nurjaman. Illustrated with code.</p>
             </div>
         </div>
     </footer>
 
-
     <script>
-        // JavaScript for mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
 
-        // Close mobile menu when a link is clicked
-        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
-        for (let link of mobileMenuLinks) {
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+                navMenu.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
             });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.offsetHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
+
+        // Active navigation link
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.2s';
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements that should fade in
+        document.querySelectorAll('.panel, .project-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced project card interactions
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Dynamic typing effect for hero tagline
+        const tagline = document.querySelector('.hero-tagline');
+        const originalText = tagline.textContent;
+        let index = 0;
+        
+        function typeWriter() {
+            if (index < originalText.length) {
+                tagline.textContent = originalText.slice(0, index + 1);
+                index++;
+                setTimeout(typeWriter, 30);
+            }
         }
+        
+        // Start typing effect after page load
+        window.addEventListener('load', () => {
+            tagline.textContent = '';
+            setTimeout(typeWriter, 1500);
+        });
+
+        // Parallax effect for background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('body::before');
+            const speed = scrolled * 0.5;
+        });
+
+        // Add click effect to buttons
+        document.querySelectorAll('.cta-button, .contact-btn, .project-link').forEach(button => {
+            button.addEventListener('click', function(e) {
+                let ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+                
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+                
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 300);
+            });
+        });
     </script>
 </body>
 </html>
