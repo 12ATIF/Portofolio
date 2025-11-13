@@ -31,7 +31,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== ANIMATED BACKGROUND ===== */
+/* ===== ANIMATED BACKGROUND (unchanged) ===== */
 body::before {
   content: "";
   position: fixed;
@@ -67,7 +67,7 @@ body::before {
   }
 }
 
-/* ===== TYPOGRAPHY ===== */
+/* ===== TYPOGRAPHY (unchanged) ===== */
 h1,
 h2,
 h3 {
@@ -88,6 +88,7 @@ h2 {
   color: var(--accent-cyan);
   text-shadow: 0 0 15px var(--accent-cyan);
   margin-bottom: 2rem;
+  text-align: center; /* Center section titles */
 }
 
 h3 {
@@ -96,7 +97,7 @@ h3 {
   margin-bottom: 1rem;
 }
 
-/* ===== HEADER & NAVIGATION ===== */
+/* ===== HEADER & NAVIGATION (unchanged) ===== */
 .header {
   position: fixed;
   top: 0;
@@ -176,7 +177,7 @@ h3 {
   cursor: pointer;
 }
 
-/* ===== LAYOUT COMPONENTS ===== */
+/* ===== LAYOUT COMPONENTS (unchanged) ===== */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -193,7 +194,8 @@ h3 {
   border: 1px solid var(--border-glow);
   border-radius: 12px;
   padding: 2rem;
-  margin: 2rem 0;
+  margin: 2rem auto; /* Added auto margin for centering */
+  max-width: 1000px; /* Max width for readability */
   box-shadow: var(--shadow-glow);
   transition: all 0.3s ease;
 }
@@ -204,7 +206,7 @@ h3 {
   transform: translateY(-5px);
 }
 
-/* ===== HERO SECTION ===== */
+/* ===== HERO SECTION (unchanged) ===== */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -306,6 +308,7 @@ h3 {
   line-height: 1.8;
 }
 
+/* CTA BUTTON (updated to support multiple buttons) */
 .cta-button {
   display: inline-block;
   padding: 1rem 2.5rem;
@@ -347,52 +350,219 @@ h3 {
   box-shadow: 0 15px 40px rgba(255, 65, 54, 0.4);
 }
 
-/* ===== GRID LAYOUTS ===== */
+/* ===== GRID LAYOUTS (unchanged) ===== */
 .grid {
   display: grid;
   gap: 2rem;
 }
 
 .grid-2 {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Adjusted minmax for larger skill cards */
 }
 
 .grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .grid-4 {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-/* ===== SKILLS SECTION ===== */
+/* ===== SKILLS SECTION (Updated styles) ===== */
 .skill-category {
-  text-align: center;
+  text-align: left; /* Align text left within the category panel */
+}
+
+.skill-category h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .skill-icon {
-  font-size: 3rem;
+  font-size: 2.5rem; /* Slightly smaller icon */
   color: var(--accent-blue);
-  margin-bottom: 1rem;
-  display: block;
+  margin-bottom: 0.5rem;
+  display: inline-block;
 }
 
 .skill-list {
   list-style: none;
+  padding-left: 0;
 }
 
 .skill-list li {
   padding: 0.5rem 0;
   border-bottom: 1px solid rgba(0, 174, 255, 0.1);
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .skill-list li:hover {
   color: var(--accent-cyan);
-  padding-left: 1rem;
+  padding-left: 0.5rem;
 }
 
-/* ===== PROJECT CARDS ===== */
+.skill-list li i {
+    font-size: 1.1rem;
+    color: var(--accent-blue);
+}
+.skill-list li:hover i {
+    color: var(--accent-cyan);
+}
+
+
+/* ===== CERTIFICATIONS SLIDER STYLES (NEW) ===== */
+.cert-header {
+    /* ADJUSTMENT: Centered the h2 by removing `justify-content: space-between;` */
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto 1.5rem auto;
+}
+
+.cert-header h2 {
+    /* To ensure proper centering after removing 'See More' */
+    margin-bottom: 0; 
+}
+
+/* REMOVED .cert-button-more STYLES */
+
+.certificate-slider {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-glow);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-glow);
+    min-height: 550px; /* Min height to prevent collapse */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.certificate-items {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.cert-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s;
+    text-align: center;
+}
+
+.cert-card.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    transition: opacity 0.5s ease-in-out, visibility 0s;
+}
+
+.cert-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.cert-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cert-title {
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    text-transform: none;
+}
+
+.cert-issuer {
+    color: var(--accent-cyan);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.cert-desc {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    max-width: 80%;
+}
+
+.cert-nav-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.nav-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    box-shadow: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-btn:hover {
+    background: var(--accent-blue);
+    color: white;
+    transform: none;
+    box-shadow: 0 0 15px rgba(0, 174, 255, 0.5);
+}
+
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    box-shadow: none;
+}
+
+.cert-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: var(--text-secondary);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.dot.active {
+    background-color: var(--accent-cyan);
+    transform: scale(1.2);
+}
+
+
+/* ===== PROJECT CARDS (unchanged) ===== */
 .project-card {
   background: var(--bg-secondary);
   border: 1px solid var(--border-glow);
@@ -400,6 +570,8 @@ h3 {
   overflow: hidden;
   transition: all 0.3s ease;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
@@ -443,16 +615,20 @@ h3 {
 
 .project-content {
   padding: 1.5rem;
+  flex-grow: 1; /* Ensures content takes full height */
+  display: flex;
+  flex-direction: column;
 }
 
 .project-title {
   color: var(--accent-cyan);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .project-description {
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Pushes links to the bottom */
 }
 
 .tech-stack {
@@ -486,6 +662,8 @@ h3 {
   border-radius: 8px;
   border: 1px solid var(--border-glow);
   transition: all 0.3s ease;
+  position: relative; /* For ripple effect */
+  overflow: hidden;
 }
 
 .project-link:hover {
@@ -494,7 +672,31 @@ h3 {
   transform: translateY(-2px);
 }
 
-/* ===== CONTACT SECTION ===== */
+/* CONTACT FORM STYLING */
+.input-field {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-glow);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* TEXTAREA adjustments */
+textarea.input-field {
+    resize: vertical;
+}
+
+/* ===== CONTACT SECTION (Modified to remove Resume button) ===== */
 .contact-buttons {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -515,6 +717,8 @@ h3 {
   border: 1px solid var(--border-glow);
   transition: all 0.3s ease;
   font-weight: 500;
+  position: relative; /* For ripple effect */
+  overflow: hidden;
 }
 
 .contact-btn:hover {
@@ -524,21 +728,11 @@ h3 {
   box-shadow: 0 15px 30px rgba(0, 174, 255, 0.3);
 }
 
-.contact-btn.resume {
-  background: linear-gradient(45deg, var(--accent-red), #ff6b6b);
-  color: white;
-  font-weight: 700;
-}
-
-.contact-btn.resume:hover {
-  background: linear-gradient(45deg, #ff6b6b, var(--accent-red));
-}
-
 .contact-btn i {
   font-size: 1.5rem;
 }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER (unchanged) ===== */
 .footer {
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-glow);
@@ -547,6 +741,9 @@ h3 {
 }
 
 .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -575,7 +772,7 @@ h3 {
   transform: translateY(-2px);
 }
 
-/* ===== SCROLL INDICATOR ===== */
+/* ===== SCROLL INDICATOR (unchanged) ===== */
 .scroll-indicator {
   position: fixed;
   top: 0;
@@ -593,7 +790,27 @@ h3 {
   transition: width 0.1s ease;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+/* ===== RESPONSIVE DESIGN (adjusted for new grid-2 max-width) ===== */
+@media (max-width: 950px) {
+  .cert-header {
+      flex-direction: column;
+      text-align: center;
+  }
+  .cert-header h2 {
+      /* ADJUSTMENT: Re-added margin for h2 if header is wrapped */
+      margin-bottom: 1rem; 
+  }
+  .cert-content {
+      padding: 0.5rem;
+  }
+  .cert-image {
+      max-width: 90%;
+  }
+  .certificate-slider {
+      min-height: 450px;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-menu {
     position: fixed;
@@ -651,7 +868,11 @@ h3 {
 
   .panel {
     padding: 1.5rem;
-    margin: 1rem 0;
+    margin: 1rem auto;
+  }
+  
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
   }
 
   .contact-buttons {
@@ -661,6 +882,18 @@ h3 {
   .project-links {
     flex-direction: column;
   }
+  
+  .cert-nav-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .nav-btn {
+    width: 100%;
+  }
+  .certificate-slider {
+      min-height: 400px;
+  }
+
 
   .footer-content {
     flex-direction: column;
@@ -668,7 +901,7 @@ h3 {
   }
 }
 
-/* ===== ANIMATIONS ===== */
+/* ===== ANIMATIONS (unchanged) ===== */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -682,7 +915,7 @@ h3 {
   }
 }
 
-/* ===== SECTION DIVIDERS ===== */
+/* ===== SECTION DIVIDERS (unchanged) ===== */
 .section-divider {
   height: 2px;
   background: linear-gradient(

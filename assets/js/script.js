@@ -44,10 +44,11 @@ const navLinks = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
     let current = '';
+    // Increase offset tolerance for section detection to ensure smooth transition
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 200)) {
+        // Use a smaller offset for active detection
+        if (scrollY >= (sectionTop - 300)) { 
             current = section.getAttribute('id');
         }
     });
@@ -93,7 +94,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all elements that should fade in
-document.querySelectorAll('.panel, .project-card').forEach(el => {
+document.querySelectorAll('.panel, .project-card, .certificate-slider').forEach(el => {
     observer.observe(el);
 });
 
@@ -127,13 +128,6 @@ window.addEventListener('load', () => {
     setTimeout(typeWriter, 1500);
 });
 
-// Parallax effect for background
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallax = document.querySelector('body::before');
-    const speed = scrolled * 0.5;
-});
-
 // Add click effect to buttons
 document.querySelectorAll('.cta-button, .contact-btn, .project-link').forEach(button => {
     button.addEventListener('click', function (e) {
@@ -152,3 +146,59 @@ document.querySelectorAll('.cta-button, .contact-btn, .project-link').forEach(bu
         }, 300);
     });
 });
+
+/* CERTIFICATE SLIDER LOGIC (NEW) */
+function certificateSlider() {
+    const cards = document.querySelectorAll('.cert-card');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('prevCertBtn');
+    const nextBtn = document.getElementById('nextCertBtn');
+    let currentIndex = 0;
+
+    if (cards.length === 0) return; // Exit if no certificates found
+
+    function updateSlider() {
+        // Remove active class from all
+        cards.forEach(card => card.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        // Add active class to current
+        cards[currentIndex].classList.add('active');
+        dots[currentIndex].classList.add('active');
+
+        // Update button states
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === cards.length - 1;
+    }
+
+    // Handle Previous button click
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+        }
+    });
+
+    // Handle Next button click
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < cards.length - 1) {
+            currentIndex++;
+            updateSlider();
+        }
+    });
+    
+    // Handle Dot click
+    dots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+            const slideTo = parseInt(e.target.dataset.slideTo);
+            currentIndex = slideTo;
+            updateSlider();
+        });
+    });
+
+    // Initial load
+    updateSlider();
+}
+
+// Run slider script after the document loads
+window.addEventListener('load', certificateSlider);
