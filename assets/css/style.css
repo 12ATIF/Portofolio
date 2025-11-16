@@ -31,6 +31,11 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+
+  /* FIX: Tambahkan properti flexbox untuk "sticky footer" */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Set tinggi body minimal se-viewport */
 }
 
 /* ===== ANIMATED BACKGROUND (unchanged) ===== */
@@ -754,14 +759,27 @@ textarea.input-field {
   border-top: 1px solid var(--border-glow);
   padding: 2rem 0;
   text-align: center;
+
+  /* FIX: Tambahkan margin-top: auto */
+  /* Ini akan mendorong footer ke bagian paling bawah 
+     jika konten di atasnya terlalu pendek. */
+  margin-top: auto;
 }
 
 .footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  /* Dihapus karena styling ini sudah di-handle oleh 
+    class .container di file index.html 
+  */
+  /* max-width: 1200px; */
+  /* margin: 0 auto; */
+  /* padding: 0 2rem; */
+
   display: flex;
-  justify-content: space-between;
+  
+  /* DIGANTI: dari 'space-between' (memaksa ke tepi) 
+    menjadi 'center' (berkumpul di tengah) 
+  */
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
@@ -851,6 +869,15 @@ textarea.input-field {
 
   .mobile-menu-toggle {
     display: block;
+  }
+
+  /* FIX: Dibuat lebih spesifik (section.hero) agar 'padding-top'
+    tidak ditimpa oleh rule .section di bawah.
+    'padding-bottom: 0;' dihapus agar padding 3rem dari .section
+    tetap berlaku, memberi jarak di bawah tombol.
+  */
+  section.hero {
+    padding-top: 5rem; /* 80px, untuk clear header */
   }
 
   .hero-content {
