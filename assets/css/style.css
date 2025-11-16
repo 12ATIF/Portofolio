@@ -247,7 +247,7 @@ h3 {
   background: var(--bg-primary);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   z-index: 1;
-}
+} 
 
 .profile-photo img {
   width: 280px;
@@ -583,7 +583,8 @@ h3 {
 .project-image {
   width: 100%;
   height: 200px;
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  /* Removed linear-gradient background from here to allow image to show fully */
+  background: var(--bg-primary); /* Set a fallback solid color */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -592,6 +593,16 @@ h3 {
   position: relative;
   overflow: hidden;
 }
+
+/* NEW: Style to make the image fit the project-image container */
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the container, cropping if necessary */
+    object-position: center; /* Centers the image within the container */
+    display: block;
+}
+
 
 .project-image::before {
   content: "";
