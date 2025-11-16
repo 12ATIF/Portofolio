@@ -767,19 +767,9 @@ textarea.input-field {
 }
 
 .footer-content {
-  /* Dihapus karena styling ini sudah di-handle oleh 
-    class .container di file index.html 
-  */
-  /* max-width: 1200px; */
-  /* margin: 0 auto; */
-  /* padding: 0 2rem; */
 
   display: flex;
-  
-  /* DIGANTI: dari 'space-between' (memaksa ke tepi) 
-    menjadi 'center' (berkumpul di tengah) 
-  */
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
