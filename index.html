@@ -4,15 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>
-    Latif Ali Nurjaman - Full-Stack Developer | Digital Solution Architect
-  </title>
+  <title>Latif Ali Nurjaman - Full-Stack Developer | Digital Solution Architect</title>
   <meta name="description"
     content="Full Stack Web Developer specializing in robust digital solutions using Laravel, Node.js, Express.js, and modern frontend frameworks." />
 
   <!-- Google Fonts -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap"
     rel="stylesheet" />
 
   <!-- Font Awesome -->
@@ -21,6 +19,31 @@
 </head>
 
 <body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <span class="preloader-logo">LAN</span>
+      <div class="preloader-bar"></div>
+    </div>
+  </div>
+
+  <!-- Floating Social Sidebar -->
+  <aside class="floating-sidebar">
+    <a href="https://github.com/12ATIF" target="_blank" title="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://linkedin.com/in/latifali" target="_blank" title="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="mailto:latifali84759@gmail.com" title="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="assets/cv/CV_Latif_Ali_Nurjaman.pdf" download title="Download CV">
+      <i class="fas fa-file-pdf"></i>
+    </a>
+    <div class="sidebar-line"></div>
+  </aside>
+
   <!-- Scroll Progress Indicator -->
   <div class="scroll-indicator">
     <div class="scroll-progress" id="scrollProgress"></div>
@@ -34,7 +57,6 @@
         <li><a href="#about" class="nav-link">About Me</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#certifications" class="nav-link">Certifications</a></li>
-        <!-- NEW NAVIGATION LINK -->
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
@@ -44,43 +66,69 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION (LANDING PAGE) -->
+  <!-- HERO SECTION -->
   <section class="hero section" id="hero">
     <div class="container">
       <div class="hero-content fade-in">
         <div class="hero-image">
           <div class="profile-photo">
-            <!-- Placeholder Image: Replace with your professional photo in assets/img/latif.jpg -->
             <img src="assets/img/coba.png" alt="Latif Ali Nurjaman - Web Developer" />
+          </div>
+          <!-- Availability Badge -->
+          <div class="availability-badge">
+            <span class="pulse"></span>
+            Open to Work
           </div>
         </div>
         <div class="hero-text">
           <h1 class="hero-title">LATIF ALI NURJAMAN</h1>
-          <p class="hero-subtitle">Web Developer | Full-Stack Enthusiast</p>
-          <p class="hero-tagline">
-            Architecting and developing robust web applications from concept
-            to deployment. Proficient in modern Front-end (HTML, CSS,
-            JavaScript, Tailwind) and Back-end frameworks (Laravel,
-            Express.js, Node.js). Focused on building scalable digital
-            solutions with a strong commitment to learning and clean code
-            standards.
+          <p class="hero-subtitle">
+            <span class="typing-text" id="typingText"></span>
+            <span class="cursor">|</span>
           </p>
-          <div class="cta-group" style="
-                display: flex;
-                gap: 1rem;
-                flex-wrap: wrap;
-                margin-top: 2rem;
-              ">
+          <p class="hero-tagline">
+            Building scalable web solutions with clean code.
+            Specialized in Full-Stack Development with Laravel & Node.js.
+          </p>
+          <div class="cta-group">
             <a href="#projects" class="cta-button">
               <i class="fas fa-code"></i> View My Projects
             </a>
-            <a href="#contact" class="cta-button" style="
-                  background: var(--accent-blue);
-                  box-shadow: 0 10px 30px rgba(0, 174, 255, 0.3);
-                ">
+            <a href="#contact" class="cta-button cta-button--secondary">
               <i class="fas fa-envelope"></i> Contact Me
             </a>
+            <a href="assets/cv/CV_Latif_Ali_Nurjaman.pdf" class="cta-button cta-button--cv" download>
+              <i class="fas fa-download"></i> Download CV
+            </a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATISTICS SECTION -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <i class="fas fa-calendar-alt stat-icon"></i>
+          <span class="stat-number" data-target="2">0</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-project-diagram stat-icon"></i>
+          <span class="stat-number" data-target="10">0</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-certificate stat-icon"></i>
+          <span class="stat-number" data-target="12">0</span>
+          <span class="stat-label">Certifications</span>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-mug-hot stat-icon"></i>
+          <span class="stat-number" data-target="999">0</span>
+          <span class="stat-label">Cups of Coffee</span>
         </div>
       </div>
     </div>
@@ -91,7 +139,7 @@
     <div class="container">
       <h2>ABOUT ME: The Developer's Journey</h2>
       <div class="panel fade-in">
-        <p style="font-size: 1.1rem; margin-bottom: 1.5rem">
+        <p class="text-lg mb-2">
           I am Latif Ali Nurjaman, an active university student and a
           technology enthusiast deeply committed to the world of Web
           Development. My foundation was significantly strengthened through
@@ -100,7 +148,7 @@
           deployment.
         </p>
 
-        <h3 style="margin-top: 2rem">Technical Edge</h3>
+        <h3 class="mt-3">Technical Edge</h3>
         <p>
           My core competence lies in Full Stack Development, ensuring
           seamless integration between the presentation layer and the data
@@ -110,7 +158,7 @@
           application building.
         </p>
 
-        <h3 style="margin-top: 2rem">Soft Skills & Approach</h3>
+        <h3 class="mt-3">Soft Skills & Approach</h3>
         <p>
           I approach complex tasks with a strong Problem-Solving mindset.
           I thrive in Teamwork environments, contributing actively to
@@ -126,38 +174,93 @@
 
   <div class="section-divider"></div>
 
+  <!-- INTERACTIVE TERMINAL SECTION -->
+  <section class="section" id="terminal">
+    <div class="container">
+      <h2>TERMINAL: Know Me Better</h2>
+      <div class="terminal-container fade-in">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <span class="terminal-btn red"></span>
+            <span class="terminal-btn yellow"></span>
+            <span class="terminal-btn green"></span>
+          </div>
+          <span class="terminal-title">latif@portfolio:~</span>
+        </div>
+        <div class="terminal-body" id="terminalBody">
+          <div class="terminal-line">
+            <span class="prompt">$</span>
+            <span class="command">whoami</span>
+          </div>
+          <div class="terminal-output">Latif Ali Nurjaman - Full Stack Developer</div>
+
+          <div class="terminal-line">
+            <span class="prompt">$</span>
+            <span class="command">cat skills.json</span>
+          </div>
+          <div class="terminal-output json">
+            {
+            "frontend": ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
+            "backend": ["Laravel", "Node.js", "Express.js"],
+            "database": ["MySQL", "Firebase"],
+            "cloud": ["Google Cloud Platform", "Cloud Run"]
+            }</div>
+
+          <div class="terminal-line">
+            <span class="prompt">$</span>
+            <span class="command">cat experience.txt</span>
+          </div>
+          <div class="terminal-output">
+            → Bangkit Academy 2024 - Cloud Computing Path
+            → Full Stack Web Development Projects
+            → RESTful API Design & Implementation
+            → Database Architecture & Optimization</div>
+
+          <div class="terminal-line">
+            <span class="prompt">$</span>
+            <span class="command">echo $STATUS</span>
+          </div>
+          <div class="terminal-output success">✓ Available for exciting opportunities!</div>
+
+          <div class="terminal-line typing-animation">
+            <span class="prompt">$</span>
+            <span class="command blink">_</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
   <!-- SKILLS SECTION -->
   <section class="section" id="skills">
     <div class="container">
       <h2>TECHNICAL SKILLS: My Core Arsenal</h2>
-      <!-- New, structured Skills layout based on requirements -->
       <div class="grid grid-2">
         <div class="panel skill-category fade-in">
-          <i class="fas fa-layer-group skill-icon" style="color: var(--accent-red)"></i>
+          <i class="fas fa-layer-group skill-icon skill-icon--red"></i>
           <h3>Frontend Focus</h3>
-          <p class="text-secondary" style="margin-bottom: 1rem">
+          <p class="text-secondary mb-1">
             Crafting clean, fast, and responsive user interfaces.
           </p>
-          <ul class="skill-list" style="columns: 2">
+          <ul class="skill-list skill-list--cols-2">
             <li><i class="fab fa-html5"></i> HTML5 & Semantic Web</li>
             <li><i class="fab fa-css3-alt"></i> CSS3 & Layouts</li>
             <li><i class="fab fa-js-square"></i> JavaScript (ES6+)</li>
             <li><i class="fab fa-bootstrap"></i> Bootstrap</li>
-            <li>
-              <i class="fab fa-css3-alt" style="color: #06b6d4"></i> Tailwind
-              CSS
-            </li>
+            <li><i class="fab fa-css3-alt"></i> Tailwind CSS</li>
             <li><i class="fas fa-mobile-alt"></i> Responsive Design</li>
           </ul>
         </div>
 
         <div class="panel skill-category fade-in">
-          <i class="fas fa-server skill-icon" style="color: var(--accent-cyan)"></i>
+          <i class="fas fa-server skill-icon skill-icon--cyan"></i>
           <h3>Backend & Data</h3>
-          <p class="text-secondary" style="margin-bottom: 1rem">
+          <p class="text-secondary mb-1">
             Building robust APIs and efficient database management.
           </p>
-          <ul class="skill-list" style="columns: 2">
+          <ul class="skill-list skill-list--cols-2">
             <li><i class="fab fa-laravel"></i> Laravel (PHP)</li>
             <li><i class="fab fa-node-js"></i> Node.js</li>
             <li><i class="fas fa-code"></i> Express.js</li>
@@ -168,13 +271,13 @@
         </div>
       </div>
 
-      <div class="panel skill-category fade-in" style="margin-top: 2rem">
-        <i class="fas fa-tools skill-icon" style="color: var(--text-primary)"></i>
+      <div class="panel skill-category fade-in mt-3">
+        <i class="fas fa-tools skill-icon skill-icon--primary"></i>
         <h3>DevOps & Tools</h3>
-        <p class="text-secondary" style="margin-bottom: 1rem">
+        <p class="text-secondary mb-1">
           Deployment, version control, and infrastructure management.
         </p>
-        <ul class="skill-list" style="columns: 3">
+        <ul class="skill-list skill-list--cols-3">
           <li><i class="fab fa-git-alt"></i> Git & GitHub</li>
           <li><i class="fas fa-cloud"></i> Google Cloud Platform</li>
           <li><i class="fas fa-wrench"></i> API Integration</li>
@@ -184,66 +287,273 @@
   </section>
 
   <div class="section-divider"></div>
-
-  <!-- CERTIFICATIONS SECTION (NEW SLIDER FORMAT) -->
+  <!-- CERTIFICATIONS SECTION -->
   <section class="section" id="certifications">
     <div class="container">
       <div class="cert-header">
         <h2>CERTIFICATIONS: Verified Competencies</h2>
+        <p class="cert-subtitle">Professional certifications from Google, EC-Council, and Dicoding in Cybersecurity,
+          Cloud Computing, and Software Development</p>
       </div>
 
       <div class="certificate-slider fade-in" id="certSlider">
         <div class="certificate-items">
-          <!-- Certificate 1: Cloud Computing (Bangkit) - ACTIVE -->
+          <!-- Certificate 1: Assets, Threats, and Vulnerabilities -->
           <div class="cert-card active" data-index="0">
             <div class="cert-content">
-              <!-- NOTE: Replace this placeholder image URL with the actual certificate image if available, or update the description -->
-              <img src="assets/img/bangkit.jpg"
-                alt="Cloud Computing Certificate" class="cert-image" />
-              <h3 class="cert-title">Cloud Computing (Bangkit)</h3>
-              <p class="cert-issuer">Google Cloud | Bangkit Academy 2024</p>
+              <img src="assets/img/Sertifikat/Sertifikat_page-0001.jpg" alt="Assets, Threats, and Vulnerabilities"
+                class="cert-image">
+              <h3 class="cert-title">Assets, Threats, and Vulnerabilities</h3>
+              <p class="cert-issuer">Google | Coursera</p>
               <p class="cert-desc">
-                Mastered fundamental concepts in Google Cloud Platform,
-                including infrastructure deployment, containerization
-                (Docker/Kubernetes), and managed services.
+                Identifying and analyzing security threats, vulnerabilities, and asset protection strategies.
               </p>
-              <a href="#" class="project-link" style="background: var(--accent-blue); color: white">
-                <i class="fas fa-certificate"></i> View Credential
-              </a>
             </div>
           </div>
 
-          <!-- Certificate 2: Full Stack Web Developer -->
+          <!-- Certificate 2: Automate Cybersecurity Tasks with Python -->
           <div class="cert-card" data-index="1">
             <div class="cert-content">
-              <img src="https://placehold.co/800x600/1e2a3a/ff4136?text=Full+Stack+Web+Dev+Cert"
-                alt="Full Stack Web Developer Certificate" class="cert-image" />
-              <h3 class="cert-title">Full Stack Web Developer</h3>
-              <p class="cert-issuer">[Nama Institusi/Platform]</p>
+              <img src="assets/img/Sertifikat/Sertifikat_page-0002.jpg" alt="Automate Cybersecurity Tasks with Python"
+                class="cert-image">
+              <h3 class="cert-title">Automate Cybersecurity Tasks with Python</h3>
+              <p class="cert-issuer">Google | Coursera</p>
               <p class="cert-desc">
-                Profesi kompeten dalam desain, pengembangan, dan deployment
-                aplikasi web modern.
+                Python programming for automating cybersecurity tasks and security analysis workflows.
               </p>
-              <a href="#" class="project-link" style="background: var(--accent-blue); color: white">
-                <i class="fas fa-certificate"></i> View Credential
-              </a>
             </div>
           </div>
 
-          <!-- Certificate 3: Secure API Development -->
+          <!-- Certificate 3: Connect and Protect: Networks and Network Security -->
           <div class="cert-card" data-index="2">
             <div class="cert-content">
-              <img src="https://placehold.co/800x600/1e2a3a/10b981?text=Secure+API+Dev+Cert"
-                alt="Secure API Development Certificate" class="cert-image" />
-              <h3 class="cert-title">Secure API Development</h3>
-              <p class="cert-issuer">[Nama Institusi/Platform]</p>
+              <img src="assets/img/Sertifikat/Sertifikat_page-0003.jpg" alt="Connect and Protect" class="cert-image">
+              <h3 class="cert-title">Connect and Protect: Networks and Network Security</h3>
+              <p class="cert-issuer">Google | Coursera</p>
               <p class="cert-desc">
-                Menguasai praktik keamanan API, otentikasi OAuth 2.0, dan
-                penanganan Rate Limiting.
+                Network architecture, protocols, and implementing security measures for network protection.
               </p>
-              <a href="#" class="project-link" style="background: var(--accent-blue); color: white">
-                <i class="fas fa-certificate"></i> View Credential
-              </a>
+            </div>
+          </div>
+
+          <!-- Certificate 4: Certified Secure Computer User (CSCU) -->
+          <div class="cert-card" data-index="3">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0004.jpg" alt="CSCU Certificate" class="cert-image">
+              <h3 class="cert-title">Certified Secure Computer User (CSCU)</h3>
+              <p class="cert-issuer">EC-Council</p>
+              <p class="cert-desc">
+                Professional certification validating skills in securing computer systems and cybersecurity
+                fundamentals.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 5: Foundations of Cybersecurity -->
+          <div class="cert-card" data-index="4">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0005.jpg" alt="Foundations of Cybersecurity"
+                class="cert-image">
+              <h3 class="cert-title">Foundations of Cybersecurity</h3>
+              <p class="cert-issuer">Google | Coursera</p>
+              <p class="cert-desc">
+                Core concepts in cybersecurity including threat identification, risk management, and security
+                frameworks.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 6: Play It Safe: Manage Security Risks -->
+          <div class="cert-card" data-index="5">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0006.jpg" alt="Play It Safe" class="cert-image">
+              <h3 class="cert-title">Play It Safe: Manage Security Risks</h3>
+              <p class="cert-issuer">Google | Coursera</p>
+              <p class="cert-desc">
+                Risk assessment and security management strategies for protecting organizational assets.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 7: Put It to Work: Prepare for Cybersecurity Jobs -->
+          <div class="cert-card" data-index="6">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0007.jpg" alt="Prepare for Cybersecurity Jobs"
+                class="cert-image">
+              <h3 class="cert-title">Put It to Work: Prepare for Cybersecurity Jobs</h3>
+              <p class="cert-issuer">Google | Coursera</p>
+              <p class="cert-desc">
+                Career preparation and professional development for cybersecurity roles.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 8: Sound the Alarm: Detection and Response -->
+          <div class="cert-card" data-index="7">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0008.jpg" alt="Detection and Response" class="cert-image">
+              <h3 class="cert-title">Sound the Alarm: Detection and Response</h3>
+              <p class="cert-issuer">Google | Coursera</p>
+              <p class="cert-desc">
+                Incident detection, monitoring, and response procedures for security operations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 9: System Administration and IT Infrastructure Services -->
+          <div class="cert-card" data-index="8">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0009.jpg" alt="System Administration" class="cert-image">
+              <h3 class="cert-title">System Administration and IT Infrastructure Services</h3>
+              <p class="cert-issuer">Google | Coursera</p>
+              <p class="cert-desc">
+                System administration and IT infrastructure management including servers and cloud services.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 10: Technical Support Fundamentals -->
+          <div class="cert-card" data-index="9">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0010.jpg" alt="Technical Support Fundamentals"
+                class="cert-image">
+              <h3 class="cert-title">Technical Support Fundamentals</h3>
+              <p class="cert-issuer">Google | Coursera</p>
+              <p class="cert-desc">
+                IT support fundamentals including troubleshooting, customer service, and technical problem-solving.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 11: The Bits and Bytes of Computer Networking -->
+          <div class="cert-card" data-index="10">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0011.jpg" alt="Computer Networking" class="cert-image">
+              <h3 class="cert-title">The Bits and Bytes of Computer Networking</h3>
+              <p class="cert-issuer">Google | Coursera</p>
+              <p class="cert-desc">
+                Networking fundamentals including TCP/IP, DNS, and network troubleshooting.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 12: Tools of the Trade: Linux and SQL -->
+          <div class="cert-card" data-index="11">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0012.jpg" alt="Linux and SQL" class="cert-image">
+              <h3 class="cert-title">Tools of the Trade: Linux and SQL</h3>
+              <p class="cert-issuer">Google | Coursera</p>
+              <p class="cert-desc">
+                Command-line proficiency in Linux systems and SQL database querying for security analysis.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 13: Belajar Dasar AI -->
+          <div class="cert-card" data-index="12">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0013.jpg" alt="Belajar Dasar AI" class="cert-image">
+              <h3 class="cert-title">Belajar Dasar AI</h3>
+              <p class="cert-issuer">Dicoding Indonesia</p>
+              <p class="cert-desc">
+                Fundamental concepts of Artificial Intelligence including machine learning basics and AI applications.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 14: Belajar Dasar Git dengan GitHub -->
+          <div class="cert-card" data-index="13">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0014.jpg" alt="Git dengan GitHub" class="cert-image">
+              <h3 class="cert-title">Belajar Dasar Git dengan GitHub</h3>
+              <p class="cert-issuer">Dicoding Indonesia</p>
+              <p class="cert-desc">
+                Version control fundamentals using Git and collaborative development with GitHub.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 15: Belajar Dasar Pemrograman JavaScript -->
+          <div class="cert-card" data-index="14">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0015.jpg" alt="JavaScript" class="cert-image">
+              <h3 class="cert-title">Belajar Dasar Pemrograman JavaScript</h3>
+              <p class="cert-issuer">Dicoding Indonesia</p>
+              <p class="cert-desc">
+                JavaScript programming fundamentals including ES6+, DOM manipulation, and modern JS concepts.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 16: Belajar Dasar Pemrograman Web -->
+          <div class="cert-card" data-index="15">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0016.jpg" alt="Pemrograman Web" class="cert-image">
+              <h3 class="cert-title">Belajar Dasar Pemrograman Web</h3>
+              <p class="cert-issuer">Dicoding Indonesia</p>
+              <p class="cert-desc">
+                Web development fundamentals including HTML5, CSS3, and responsive web design principles.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 17: Belajar Membuat Aplikasi Back-End untuk Pemula dengan Google Cloud -->
+          <div class="cert-card" data-index="16">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0017.jpg" alt="Back-End Google Cloud" class="cert-image">
+              <h3 class="cert-title">Belajar Membuat Aplikasi Back-End untuk Pemula dengan Google Cloud</h3>
+              <p class="cert-issuer">Dicoding Indonesia</p>
+              <p class="cert-desc">
+                Building scalable back-end applications using Google Cloud Platform services and infrastructure.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 18: Belajar Penerapan Machine Learning dengan Google Cloud -->
+          <div class="cert-card" data-index="17">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0018.jpg" alt="ML Google Cloud" class="cert-image">
+              <h3 class="cert-title">Belajar Penerapan Machine Learning dengan Google Cloud</h3>
+              <p class="cert-issuer">Dicoding Indonesia</p>
+              <p class="cert-desc">
+                Implementing machine learning solutions using Google Cloud AI and ML services.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 19: Memulai Dasar Pemrograman untuk Menjadi Pengembang Software -->
+          <div class="cert-card" data-index="18">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0019.jpg" alt="Dasar Pemrograman" class="cert-image">
+              <h3 class="cert-title">Memulai Dasar Pemrograman untuk Menjadi Pengembang Software</h3>
+              <p class="cert-issuer">Dicoding Indonesia | Prakerja</p>
+              <p class="cert-desc">
+                Programming fundamentals for aspiring software developers covering basic concepts and best practices.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 20: Menjadi Google Cloud Engineer -->
+          <div class="cert-card" data-index="19">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0020.jpg" alt="Google Cloud Engineer" class="cert-image">
+              <h3 class="cert-title">Menjadi Google Cloud Engineer</h3>
+              <p class="cert-issuer">Dicoding Indonesia</p>
+              <p class="cert-desc">
+                Comprehensive Google Cloud Platform skills for cloud engineering and infrastructure management.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certificate 21: Pengenalan ke Logika Pemrograman (Programming Logic 101) -->
+          <div class="cert-card" data-index="20">
+            <div class="cert-content">
+              <img src="assets/img/Sertifikat/Sertifikat_page-0021.jpg" alt="Programming Logic 101" class="cert-image">
+              <h3 class="cert-title">Pengenalan ke Logika Pemrograman (Programming Logic 101)</h3>
+              <p class="cert-issuer">Dicoding Indonesia</p>
+              <p class="cert-desc">
+                Introduction to programming logic, algorithms, and computational thinking fundamentals.
+              </p>
             </div>
           </div>
         </div>
@@ -253,6 +563,24 @@
           <span class="dot active" data-slide-to="0"></span>
           <span class="dot" data-slide-to="1"></span>
           <span class="dot" data-slide-to="2"></span>
+          <span class="dot" data-slide-to="3"></span>
+          <span class="dot" data-slide-to="4"></span>
+          <span class="dot" data-slide-to="5"></span>
+          <span class="dot" data-slide-to="6"></span>
+          <span class="dot" data-slide-to="7"></span>
+          <span class="dot" data-slide-to="8"></span>
+          <span class="dot" data-slide-to="9"></span>
+          <span class="dot" data-slide-to="10"></span>
+          <span class="dot" data-slide-to="11"></span>
+          <span class="dot" data-slide-to="12"></span>
+          <span class="dot" data-slide-to="13"></span>
+          <span class="dot" data-slide-to="14"></span>
+          <span class="dot" data-slide-to="15"></span>
+          <span class="dot" data-slide-to="16"></span>
+          <span class="dot" data-slide-to="17"></span>
+          <span class="dot" data-slide-to="18"></span>
+          <span class="dot" data-slide-to="19"></span>
+          <span class="dot" data-slide-to="20"></span>
         </div>
 
         <!-- Navigation Controls -->
@@ -272,306 +600,288 @@
 
   <!-- PROJECTS SECTION -->
   <section class="section" id="projects">
-      <div class="container">
-        <h2>FEATURED PROJECTS: Solution Implementation</h2>
-        <div class="grid grid-3">
-          <!-- Project 1: Sistem Pendaftaran Lomba Silat - NEW PROJECT -->
-          <div class="project-card fade-in">
-            <div class="project-image" style="background: #191919;">
-              <!-- MODIFICATION: Removed <i> tag -->
-              <img src="assets/img/image.png" alt="Silat Login Screen" />
+    <div class="container">
+      <h2>FEATURED PROJECTS: Solution Implementation</h2>
+
+      <!-- Project Filter Tabs -->
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+        <button class="filter-btn" data-filter="backend">Backend</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+      </div>
+
+      <div class="grid grid-3">
+        <!-- Project 1: Sistem Pendaftaran Lomba Silat -->
+        <div class="project-card fade-in" data-category="fullstack">
+          <div class="project-badge">🔥 Featured</div>
+          <div class="project-image project-image--dark">
+            <img src="assets/img/image.png" alt="Silat Login Screen" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Silat Competition Registration System</h3>
+            <p class="project-description">
+              A highly robust full-stack system managing competition
+              registration, including complex data domain design
+              (Team/Official/Weight Class), QR-based Check-in, and automated
+              pool/bracket generation (single elimination).
+            </p>
+            <div class="project-achievement">
+              <i class="fas fa-trophy"></i> 200+ Registrations Handled
             </div>
-            <div class="project-content">
-              <h3 class="project-title">
-                Silat Competition Registration System
-              </h3>
-              <p class="project-description">
-                A highly robust full-stack system managing competition
-                registration, including complex data domain design
-                (Team/Official/Weight Class), QR-based Check-in, and automated
-                pool/bracket generation (single elimination).
-              </p>
-              <div class="tech-stack">
-                <span class="tech-tag" style="
-                    background: rgba(255, 65, 54, 0.1);
-                    color: var(--accent-red);
-                  ">Laravel</span>
-                <span class="tech-tag">Queue/Retry</span>
-                <span class="tech-tag">QR Code</span>
-                <span class="tech-tag">Audit Trail / RBAC</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-link" style="
-                    color: var(--accent-red);
-                    border-color: rgba(255, 65, 54, 0.3);
-                  ">
-                  <i class="fas fa-search-plus"></i> View Details
-                </a>
-                <a href="https://github.com/12ATIF/Pelatih_Registrasi_Silat.git" class="project-link">
-                  <i class="fab fa-github"></i> GitHub Repo
-                </a>
-              </div>
+            <div class="tech-stack">
+              <span class="tech-tag tech-tag--laravel">Laravel</span>
+              <span class="tech-tag">Queue/Retry</span>
+              <span class="tech-tag">QR Code</span>
+              <span class="tech-tag">Audit Trail / RBAC</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link project-link--primary">
+                <i class="fas fa-search-plus"></i> View Details
+              </a>
+              <a href="https://github.com/12ATIF/Pelatih_Registrasi_Silat.git" class="project-link">
+                <i class="fab fa-github"></i> GitHub Repo
+              </a>
             </div>
           </div>
+        </div>
 
-          <!-- Project 1: Sistem Perpustakaan (Full Stack) - NEW PROJECT -->
-          <div class="project-card fade-in">
-            <div class="project-image" style="background: linear-gradient(135deg, #1d4ed8, #3b82f6)">
-              <i class="fas fa-book"></i>
+        <!-- Project 2: Sistem Perpustakaan -->
+        <div class="project-card fade-in" data-category="fullstack">
+          <div class="project-image" style="background: linear-gradient(135deg, #1d4ed8, #3b82f6)">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Integrated Library System (Full-Stack)</h3>
+            <p class="project-description">
+              Architected and developed a comprehensive library management
+              system covering book cataloging, transaction processing
+              (loan/return), and automated fine calculation.
+            </p>
+            <div class="project-achievement">
+              <i class="fas fa-database"></i> 1000+ Books Cataloged
             </div>
-            <div class="project-content">
-              <h3 class="project-title">
-                Integrated Library System (Full-Stack)
-              </h3>
-              <p class="project-description">
-                Architected and developed a comprehensive library management
-                system covering book cataloging, transaction processing
-                (loan/return), and automated fine calculation. Implemented
-                hardening techniques (validation, policy, DB indexing) for high
-                performance.
-              </p>
-              <div class="tech-stack">
-                <span class="tech-tag" style="
-                    background: rgba(255, 65, 54, 0.1);
-                    color: var(--accent-red);
-                  ">Laravel</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">Full-Text Search</span>
-                <span class="tech-tag">DB Hardening</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-link" style="
-                    color: var(--accent-red);
-                    border-color: rgba(255, 65, 54, 0.3);
-                  ">
-                  <i class="fas fa-search-plus"></i> View Details
-                </a>
-                <a href="https://github.com/12ATIF/E-Library-SKL2.git" class="project-link">
-                  <i class="fab fa-github"></i> GitHub Repo
-                </a>
-              </div>
+            <div class="tech-stack">
+              <span class="tech-tag tech-tag--laravel">Laravel</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">Full-Text Search</span>
+              <span class="tech-tag">DB Hardening</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link project-link--primary">
+                <i class="fas fa-search-plus"></i> View Details
+              </a>
+              <a href="https://github.com/12ATIF/E-Library-SKL2.git" class="project-link">
+                <i class="fab fa-github"></i> GitHub Repo
+              </a>
             </div>
           </div>
+        </div>
 
-          <!-- Project 2: Sistem Absensi Karyawan & Penggajian (Backend) - NEW PROJECT -->
-          <div class="project-card fade-in">
-            <div class="project-image" style="background: linear-gradient(135deg, #059669, #34d399)">
-              <i class="fas fa-clock"></i>
+        <!-- Project 3: HR Payroll & Attendance -->
+        <div class="project-card fade-in" data-category="backend">
+          <div class="project-image" style="background: linear-gradient(135deg, #059669, #34d399)">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">HR Payroll & Attendance System</h3>
+            <p class="project-description">
+              Designed the robust backend for employee management, handling
+              complex logic for attendance (shifts, leaves), automated payroll
+              calculation, and PDF payslip generation.
+            </p>
+            <div class="project-achievement">
+              <i class="fas fa-credit-card"></i> Midtrans Integration
             </div>
-            <div class="project-content">
-              <h3 class="project-title">
-                HR Payroll & Attendance System (Backend)
-              </h3>
-              <p class="project-description">
-                Designed the robust backend for employee management, handling
-                complex logic for attendance (shifts, leaves), automated payroll
-                calculation (overtime, deductions), and PDF payslip generation.
-                Included Midtrans payment gateway integration for various
-                transactions.
-              </p>
-              <div class="tech-stack">
-                <span class="tech-tag" style="
-                    background: rgba(255, 65, 54, 0.1);
-                    color: var(--accent-red);
-                  ">Laravel</span>
-                <span class="tech-tag">Midtrans</span>
-                <span class="tech-tag">API Webhook</span>
-                <span class="tech-tag">Automated Logic</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-link" style="
-                    color: var(--accent-red);
-                    border-color: rgba(255, 65, 54, 0.3);
-                  ">
-                  <i class="fas fa-search-plus"></i> View Details
-                </a>
-                <a href="#" class="project-link">
-                  <i class="fab fa-github"></i> GitHub Repo
-                </a>
-              </div>
+            <div class="tech-stack">
+              <span class="tech-tag tech-tag--laravel">Laravel</span>
+              <span class="tech-tag">Midtrans</span>
+              <span class="tech-tag">API Webhook</span>
+              <span class="tech-tag">Automated Logic</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link project-link--primary">
+                <i class="fas fa-search-plus"></i> View Details
+              </a>
+              <a href="#" class="project-link">
+                <i class="fab fa-github"></i> GitHub Repo
+              </a>
             </div>
           </div>
+        </div>
 
-          <!-- Project 3: SnapEat! (Laravel, Frontend Web App) - MOVED & RENUMBERED -->
-          <div class="project-card fade-in">
-            <div class="project-image" style="background: linear-gradient(135deg, #f59e0b, #fbbf24)">
-              <i class="fas fa-utensils"></i>
+        <!-- Project 4: SnapEat! -->
+        <div class="project-card fade-in" data-category="fullstack">
+          <div class="project-image" style="background: linear-gradient(135deg, #f59e0b, #fbbf24)">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">SnapEat! - Food Review App</h3>
+            <p class="project-description">
+              A social media platform dedicated to authentic food reviews.
+              Developed the comprehensive MVC structure and integrated
+              Firebase for real-time data handling.
+            </p>
+            <div class="project-achievement">
+              <i class="fas fa-fire"></i> Real-time Firebase
             </div>
-            <div class="project-content">
-              <h3 class="project-title">SnapEat! - Food Review App</h3>
-              <p class="project-description">
-                A social media platform dedicated to authentic food reviews.
-                Developed the comprehensive MVC structure and integrated
-                Firebase for real-time data handling.
-              </p>
-              <div class="tech-stack">
-                <span class="tech-tag" style="
-                    background: rgba(255, 65, 54, 0.1);
-                    color: var(--accent-red);
-                  ">Laravel</span>
-                <span class="tech-tag">Firebase</span>
-                <span class="tech-tag" style="
-                    background: rgba(0, 212, 255, 0.1);
-                    color: var(--accent-cyan);
-                  ">Tailwind CSS</span>
-                <span class="tech-tag">Full Stack</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-link" style="
-                    color: var(--accent-red);
-                    border-color: rgba(255, 65, 54, 0.3);
-                  ">
-                  <i class="fas fa-search-plus"></i> View Details
-                </a>
-                <a href="#" class="project-link">
-                  <i class="fab fa-github"></i> GitHub Repo
-                </a>
-              </div>
+            <div class="tech-stack">
+              <span class="tech-tag tech-tag--laravel">Laravel</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag tech-tag--tailwind">Tailwind CSS</span>
+              <span class="tech-tag">Full Stack</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link project-link--primary">
+                <i class="fas fa-search-plus"></i> View Details
+              </a>
+              <a href="#" class="project-link">
+                <i class="fab fa-github"></i> GitHub Repo
+              </a>
             </div>
           </div>
+        </div>
 
-          <!-- Project 4: Notes API (Express.js, Backend API) - MOVED & RENUMBERED -->
-          <div class="project-card fade-in">
-            <div class="project-image" style="background: linear-gradient(135deg, #f97316, #fb923c)">
-              <i class="fas fa-sticky-note"></i>
+        <!-- Project 5: Notes API -->
+        <div class="project-card fade-in" data-category="backend">
+          <div class="project-image" style="background: linear-gradient(135deg, #f97316, #fb923c)">
+            <i class="fas fa-sticky-note"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Notes API - RESTful Service</h3>
+            <p class="project-description">
+              Engineered a high-performance RESTful API for notes management.
+              Focused on secure data endpoints and optimized deployment using
+              Google Cloud's infrastructure.
+            </p>
+            <div class="project-achievement">
+              <i class="fas fa-cloud"></i> Deployed on GKE
             </div>
-            <div class="project-content">
-              <h3 class="project-title">Notes API - RESTful Service</h3>
-              <p class="project-description">
-                Engineered a high-performance RESTful API for notes management.
-                Focused on secure data endpoints and optimized deployment using
-                Google Cloud's infrastructure.
-              </p>
-              <div class="tech-stack">
-                <span class="tech-tag" style="
-                    background: rgba(0, 174, 255, 0.1);
-                    color: var(--accent-blue);
-                  ">Express.js</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">GKE (Google Cloud)</span>
-                <span class="tech-tag">API Design</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-link" style="
-                    color: var(--accent-red);
-                    border-color: rgba(255, 65, 54, 0.3);
-                  ">
-                  <i class="fas fa-search-plus"></i> View Details
-                </a>
-                <a href="https://github.com/12ATIF/E-Library-SKL2.git" class="project-link">
-                  <i class="fab fa-github"></i> GitHub Repo
-                </a>
-              </div>
+            <div class="tech-stack">
+              <span class="tech-tag tech-tag--express">Express.js</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">GKE (Google Cloud)</span>
+              <span class="tech-tag">API Design</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link project-link--primary">
+                <i class="fas fa-search-plus"></i> View Details
+              </a>
+              <a href="https://github.com/12ATIF/E-Library-SKL2.git" class="project-link">
+                <i class="fab fa-github"></i> GitHub Repo
+              </a>
             </div>
           </div>
+        </div>
 
-          <!-- Project 5: Plant Disease Detector (ML, Mobile) - MOVED & RENUMBERED -->
-          <div class="project-card fade-in">
-            <div class="project-image" style="background: linear-gradient(135deg, #3b82f6, #60a5fa)">
-              <i class="fas fa-leaf"></i>
+        <!-- Project 6: Plant Disease Detector -->
+        <div class="project-card fade-in" data-category="mobile">
+          <div class="project-image" style="background: linear-gradient(135deg, #3b82f6, #60a5fa)">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Plant Disease Detector (Android)</h3>
+            <p class="project-description">
+              Developed an Android application to detect chili plant diseases
+              in real-time. Integrated a pre-trained CNN model for accurate,
+              on-device analysis.
+            </p>
+            <div class="project-achievement">
+              <i class="fas fa-brain"></i> ML-Powered Detection
             </div>
-            <div class="project-content">
-              <h3 class="project-title">Plant Disease Detector (Android)</h3>
-              <p class="project-description">
-                Developed an Android application to detect chili plant diseases
-                in real-time. Integrated a pre-trained CNN model for accurate,
-                on-device analysis.
-              </p>
-              <div class="tech-stack">
-                <span class="tech-tag">TensorFlow</span>
-                <span class="tech-tag">Kotlin</span>
-                <span class="tech-tag">CNN Model</span>
-                <span class="tech-tag">Android Dev</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-link" style="
-                    color: var(--accent-red);
-                    border-color: rgba(255, 65, 54, 0.3);
-                  ">
-                  <i class="fas fa-search-plus"></i> View Details
-                </a>
-                <a href="#" class="project-link">
-                  <i class="fab fa-github"></i> GitHub Repo
-                </a>
-              </div>
+            <div class="tech-stack">
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">Kotlin</span>
+              <span class="tech-tag">CNN Model</span>
+              <span class="tech-tag">Android Dev</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link project-link--primary">
+                <i class="fas fa-search-plus"></i> View Details
+              </a>
+              <a href="#" class="project-link">
+                <i class="fab fa-github"></i> GitHub Repo
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <div class="section-divider"></div>
+  <div class="section-divider"></div>
 
-    <!-- CONTACT SECTION -->
-    <section class="section" id="contact">
-      <div class="container">
-        <h2>CONTACT ME: Let's Connect</h2>
-        <div class="panel fade-in">
-          <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem">
-            Feel free to reach out for collaboration, job opportunities, or
-            just to say hello. I am always open to discussing new digital
-            solutions.
-          </p>
+  <!-- CONTACT SECTION -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2>CONTACT ME: Let's Connect</h2>
+      <div class="panel fade-in">
+        <p class="text-center text-xl mb-3">
+          Feel free to reach out for collaboration, job opportunities, or
+          just to say hello. I am always open to discussing new digital
+          solutions.
+        </p>
 
-          <!-- Contact Form (Simple Placeholder) -->
-          <form action="#" method="POST" class="contact-form" style="max-width: 600px; margin: 0 auto 3rem auto">
-            <input type="text" name="name" placeholder="Your Full Name" required class="input-field" />
-            <input type="email" name="email" placeholder="Your Professional Email" required class="input-field" />
-            <textarea name="message" placeholder="Your Message or Project Inquiry" rows="5" required
-              class="input-field"></textarea>
-            <button type="submit" class="cta-button" style="
-                width: 100%;
-                margin-top: 1rem;
-                background: var(--accent-cyan);
-                box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-              ">
-              Send Message <i class="fas fa-paper-plane"></i>
-            </button>
-          </form>
+        <!-- Contact Form -->
+        <form action="#" method="POST" class="contact-form">
+          <input type="text" name="name" placeholder="Your Full Name" required class="input-field" />
+          <input type="email" name="email" placeholder="Your Professional Email" required class="input-field" />
+          <textarea name="message" placeholder="Your Message or Project Inquiry" rows="5" required
+            class="input-field"></textarea>
+          <button type="submit" class="cta-button cta-button--full">
+            Send Message <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
 
-          <h3 style="text-align: center; margin-top: 3rem">Find Me Online</h3>
-          <div class="contact-buttons">
-            <a href="mailto:latifali84759@gmail.com" class="contact-btn">
-              <i class="fas fa-envelope"></i>
-              <span>latifali84759@gmail.com</span>
-            </a>
+        <h3 class="text-center mt-4">Find Me Online</h3>
+        <div class="contact-buttons">
+          <a href="mailto:latifali84759@gmail.com" class="contact-btn">
+            <i class="fas fa-envelope"></i>
+            <span>latifali84759@gmail.com</span>
+          </a>
 
-            <a href="https://linkedin.com/in/latifali" class="contact-btn" target="_blank">
-              <i class="fab fa-linkedin"></i>
-              <span>LinkedIn Profile</span>
-            </a>
+          <a href="https://linkedin.com/in/latifali" class="contact-btn" target="_blank">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn Profile</span>
+          </a>
 
-            <a href="https://github.com/12ATIF" class="contact-btn" target="_blank">
-              <i class="fab fa-github"></i>
-              <span>GitHub Repository</span>
-            </a>
-          </div>
+          <a href="https://github.com/12ATIF" class="contact-btn" target="_blank">
+            <i class="fab fa-github"></i>
+            <span>GitHub Repository</span>
+          </a>
+
+          <a href="assets/cv/CV_Latif_Ali_Nurjaman.pdf" class="contact-btn contact-btn--cv" download>
+            <i class="fas fa-file-pdf"></i>
+            <span>Download CV</span>
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-text">
-            &copy; 2024 Latif Ali Nurjaman | Full Stack Developer
-          </div>
-          <div class="footer-social">
-            <a href="https://linkedin.com/in/latifali" target="_blank" title="LinkedIn">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/12ATIF" target="_blank" title="GitHub">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="mailto:latifali84759@gmail.com" title="Email">
-              <i class="fas fa-envelope"></i>
-            </a>
-          </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-text">
+          &copy; 2024 Latif Ali Nurjaman | Full Stack Developer
+        </div>
+        <div class="footer-social">
+          <a href="https://linkedin.com/in/latifali" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/12ATIF" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:latifali84759@gmail.com" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
         </div>
       </div>
-    </footer>
-    <script src="assets/js/script.js"></script>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>
